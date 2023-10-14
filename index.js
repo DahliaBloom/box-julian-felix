@@ -33,7 +33,7 @@ app.get('/search', (req, res) => {
         }
         console.log(res.rows);
 
-        res.render('search', {table: res.rows, q: re.query.q});
+        res.render('search', {table: res.rows, q: req.query.q});
     });
 })
 

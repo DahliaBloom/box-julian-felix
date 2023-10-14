@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-   res.render('search')
+   res.render('search', {q: req.query})
 })
 
 app.listen(port, () => {

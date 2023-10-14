@@ -33,20 +33,42 @@ app.get('/search', (req, res) => {
                 console.error(err);
                 return;
             }
-            console.log(ress.rows);
+            // console.log(ress.rows);
 
             res.render('search', {table: ress.rows, q: req.query.q, min: (req.query.min === undefined ? 0 : req.query.min), max: (req.query.max === undefined ? '9999' : req.query.max)});
         });
 
     } else {
 
+        let sort = "ASC"
 
-        client.query(`SELECT * FROM products WHERE name like \'%${mysql_real_escape_string(req.query.q)}%\'`, (err, ress) => {
+        if (req.query.sort === "desc"){
+            sort = "DESC"
+        }
+
+        const content = [req.query.q]
+
+        let priceFilter = ""
+        if (req.query.priceFrom !== undefined && req.query.priceTo === undefined) {
+            priceFilter = " AND price > $2"
+            content.push(req.query.priceFrom)
+        } else if (req.query.priceFrom === undefined && req.query.priceTo !== undefined) {
+            priceFilter = " AND price < $2"
+            content.push(req.query.priceTo)
+        } else if (req.query.priceFrom !== undefined && req.query.priceTo !== undefined) {
+            priceFilter = " AND price BETWEEN $2 AND $3"
+            content.push(req.query.priceFrom)
+            content.push(req.query.priceTo)
+        }
+
+        const text = 'SELECT * FROM products WHERE SIMILARITY(name, $1) > 0.02' + priceFilter + ' ORDER BY price ' + sort
+
+        client.query(text, content, (err, ress) => {
             if (err) {
                 console.error(err);
                 return;
             }
-            console.log(ress.rows);
+            // console.log(ress.rows);
 
             res.render('search', {table: ress.rows, q: req.query.q});
         });

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-//const generateDB = require('./GenerateDB.js')
-//generateDB.run(client);
+
+const generateDB = require('./GenerateDB.js')
 
 const express = require('express')
 const app = express()
@@ -48,6 +48,9 @@ app.get('/search', (req, res) => {
         res.render('search', {table: res.rows});
     });
 })
+
+generateDB.run(client);
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

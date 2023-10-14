@@ -26,19 +26,6 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    let data = [{
-        "name": "Refectocil Lash & Brow Booster Wachstumsfördernd, frei von Prostamid und synthetischen Hormonen 6 ml",
-        "price": 4079,
-        "image": "https://cdn2.beauty.check24.de/product/eyJrZXkiOiI5YS85YTAxNzRjMS1kNThjLTVmOTUtYjZiNS1mMjliNWE2OTI4YWIuanBlZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiaW5zaWRlIn0sInRyaW0iOjF9fQ=="
-    },
-        {
-            "name": "Hörmann Handsender HSE4 868-BS Kunststoff schwarz Struktur SW-Eu (4511736)",
-            "price": 4189,
-            "image": "https://cdn2.baumarkt.check24.de/product/eyJrZXkiOiJwcm9kdWN0L3E3Yy9nNGwvZHh4Lzl4bHFkZzdoYWhjOC5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjMwMCwiaGVpZ2h0IjozMDAsImZpdCI6Imluc2lkZSJ9LCJ0cmltIjoxfX0="
-        }];
-    res.render('search', {table: data, q: req.query.q});
-    return;
-
     client.query('SELECT * FROM products', (err, res) => {
         if (err) {
             console.error(err);
@@ -46,7 +33,7 @@ app.get('/search', (req, res) => {
         }
         console.log(res.rows);
 
-        res.render('search', {table: res.rows, q: req.query.q});
+        res.render('search', {table: res.rows, q: re.query.q});
     });
 })
 

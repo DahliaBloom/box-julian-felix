@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+var things = require("importDB");
+
 const express = require('express')
 const app = express()
 const port = 3000
@@ -22,7 +24,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    data = [1, 2, 4]
+    data = [1, 2, 4];
     res.render('search', {table: data});
     return;
 
@@ -36,9 +38,6 @@ app.get('/search', (req, res) => {
         res.render('search', {table: res.rows});
     });
 })
-
-
-import
 
 
 app.listen(port, () => {

@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-var things = require("importDB");
 
 const express = require('express')
 const app = express()
@@ -39,6 +38,8 @@ app.get('/search', (req, res) => {
     });
 })
 
+
+// importDB.run(client);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

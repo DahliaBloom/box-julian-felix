@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    client.query('SELECT * FROM products', (err, ress) => {
+    client.query(`SELECT * FROM products WHERE name like %${req.query}%`, (err, ress) => {
         if (err) {
             console.error(err);
             return;

@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
+    data = [1, 2, 4]
+    res.render('search', {table: data});
+    return;
+
     client.query('SELECT * FROM products', (err, res) => {
         if (err) {
             console.error(err);

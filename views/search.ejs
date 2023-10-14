@@ -38,7 +38,7 @@
             border: 2px solid #005ea8;
             border-radius: 10px;
             display: flex;
-            padding-right: 20px;
+            padding: 20px;
         }
 
         #betrag {
@@ -67,6 +67,7 @@
         }
 
         input {
+            padding-left: 3px;
             border: 2px solid #005ea8;
             border-radius: 10px;
             height: 40px;
@@ -81,8 +82,8 @@
     <h1>
         Searching for: <%= q %>
     </h1>
-    <form>
-        <input type="text" id="searchInput" placeholder="Enter search term">
+    <form action="search">
+        <input type="text" name="q" id="searchInput" placeholder="Enter search term">
     </form>
 </div>
 <div id="container">
@@ -97,13 +98,4 @@
     <% }); %>
 </div>
 </body>
-
-<script>
-    document.getElementById('searchForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var searchTerm = document.getElementById('searchInput').value;
-        console.log(searchTerm)
-        window.location.href = "http://192.168.140.147/search?q=" + searchTerm;
-    });
-</script>
 </html>

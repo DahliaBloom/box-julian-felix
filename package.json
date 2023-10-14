@@ -1,0 +1,23 @@
+{
+  "name": "box-julian-felix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/check24-scholarships/box-julian-felix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/check24-scholarships/box-julian-felix/issues"
+  },
+  "homepage": "https://github.com/check24-scholarships/box-julian-felix#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

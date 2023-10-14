@@ -49,16 +49,16 @@ app.get('/search', (req, res) => {
         const content = [req.query.q]
 
         let priceFilter = ""
-        if (req.query.priceFrom !== undefined && req.query.priceTo === undefined) {
+        if (req.query.min !== undefined && req.query.max === undefined) {
             priceFilter = " AND price > $2"
-            content.push(req.query.priceFrom)
-        } else if (req.query.priceFrom === undefined && req.query.priceTo !== undefined) {
+            content.push(req.query.min)
+        } else if (req.query.min === undefined && req.query.max !== undefined) {
             priceFilter = " AND price < $2"
-            content.push(req.query.priceTo)
-        } else if (req.query.priceFrom !== undefined && req.query.priceTo !== undefined) {
+            content.push(req.query.max)
+        } else if (req.query.min !== undefined && req.query.max !== undefined) {
             priceFilter = " AND price BETWEEN $2 AND $3"
-            content.push(req.query.priceFrom)
-            content.push(req.query.priceTo)
+            content.push(req.query.min)
+            content.push(req.query.max)
         }
 
         const text = 'SELECT * FROM products WHERE SIMILARITY(name, $1) > 0.02' + priceFilter + ' ORDER BY price ' + sort

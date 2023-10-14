@@ -51,6 +51,8 @@ function mysql_real_escape_string (str) {
                 return "\\r";
             case "\"":
             case "'":
+                return "''"; // prepends a backslash to backslash, percent,
+
             case "\\":
             case "%":
                 return "\\"+char; // prepends a backslash to backslash, percent,

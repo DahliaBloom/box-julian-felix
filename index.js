@@ -48,7 +48,6 @@ app.get('/search', (req, res) => {
 })
 
 
-generateDB.run(client);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

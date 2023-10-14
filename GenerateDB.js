@@ -1,4 +1,5 @@
 const fs = require('fs');
+const {parse} = require("nodemon/lib/cli");
 
 function run(client) {
 
@@ -6,7 +7,7 @@ function run(client) {
 
     const json = fs.readFileSync('./dump.json', 'utf8');
 
-    console.log(json);
+    data = parse(json)
 
     console.log(data);
 

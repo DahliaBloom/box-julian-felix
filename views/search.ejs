@@ -26,8 +26,7 @@
 
         #container {
             width: 90vw;
-            height: 90vh;
-            background-color: red;
+            display: flex;
         }
     </style>
 
@@ -35,15 +34,9 @@
 
 <body>
 <div id="container">
-    <div>
-        d
-    </div>
-    <div>
-        d
-    </div>
-    <div>
-        d
-    </div>
+    <% table.forEach(function(item) { %>
+        <div><%= item.name %></div>
+    <% }); %>
 </div>
 </body>
 </html>

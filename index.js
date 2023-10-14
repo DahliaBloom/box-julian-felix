@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+var generateDB = import('./GenerateDB');
 
 const express = require('express')
 const app = express()
@@ -8,7 +9,7 @@ const { Client } = require('pg');
 
 const client = new Client({
     user: 'admin',
-    host: 'localhost',
+    host: '192.168.140.147',
     database: 'check24',
     password: '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',
     port: 9856,
@@ -23,7 +24,16 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    data = [1, 2, 4];
+    let data = [{
+        "name": "Refectocil Lash & Brow Booster Wachstumsfördernd, frei von Prostamid und synthetischen Hormonen 6 ml",
+        "price": 4079,
+        "image": "https://cdn2.beauty.check24.de/product/eyJrZXkiOiI5YS85YTAxNzRjMS1kNThjLTVmOTUtYjZiNS1mMjliNWE2OTI4YWIuanBlZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiaW5zaWRlIn0sInRyaW0iOjF9fQ=="
+    },
+        {
+            "name": "Hörmann Handsender HSE4 868-BS Kunststoff schwarz Struktur SW-Eu (4511736)",
+            "price": 4189,
+            "image": "https://cdn2.baumarkt.check24.de/product/eyJrZXkiOiJwcm9kdWN0L3E3Yy9nNGwvZHh4Lzl4bHFkZzdoYWhjOC5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjMwMCwiaGVpZ2h0IjozMDAsImZpdCI6Imluc2lkZSJ9LCJ0cmltIjoxfX0="
+        }];
     res.render('search', {table: data});
     return;
 
@@ -39,7 +49,7 @@ app.get('/search', (req, res) => {
 })
 
 
-// importDB.run(client);
+generateDB.run(client);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

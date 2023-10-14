@@ -1,10 +1,12 @@
+const fs = require('fs');
+
 function run(client) {
 
     var data = "";
 
-    fetch('./dumb.json')
-        .then((response) => response.json())
-        .then((json) => data = parse(json));
+    const json = fs.readFileSync('./dump.json', 'utf8');
+
+    console.log(json);
 
     console.log(data);
 

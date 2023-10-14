@@ -94,7 +94,7 @@
     </form>
 </div>
 <div id="orderDiv">
-    <form action="search">
+
         <div class="itemGroup" name="">
             Sort: <%= order %>
         </div>
@@ -104,7 +104,6 @@
         <div class="itemGroup">
             Max: <%= max %>
         </div>
-    </form>
 </div>
 <div id="container">
     <% table.forEach(function(item) { %>
@@ -112,7 +111,7 @@
             <img src="<%= item.image %>">
             <div style="flex-grow: 1">
                 <p><%= item.name %></p>
-                <p id="betrag"><%= item.price %> €</p>
+                <p id="betrag"><%= item.price %>.slice(-2) €</p>
             </div>
         </div>
     <% }); %>

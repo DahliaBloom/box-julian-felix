@@ -26,14 +26,14 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    client.query('SELECT * FROM products', (err, res) => {
+    client.query('SELECT * FROM products', (err, ress) => {
         if (err) {
             console.error(err);
             return;
         }
-        console.log(res.rows);
+        console.log(ress.rows);
 
-        res.render('search', {table: res.rows, q: req.query.q});
+        res.render('search', {table: ress.rows, q: req.query.q});
     });
 })
 

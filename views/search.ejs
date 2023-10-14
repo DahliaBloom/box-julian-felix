@@ -43,7 +43,7 @@
 
         #betrag {
             font-family: 'Courier New', Courier, monospace;
-            color: grey;
+            color: #005ea8;
             font-size: 2rem;
         }
 
@@ -52,27 +52,19 @@
             text-align: right;
         }
 
-        .image {
-            position: relative;
-            display: inline-block;
-        }
-
-        .image::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 50%;
-            background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,1) 50%);
-        }
-
         input {
             padding-left: 3px;
             border: 2px solid #005ea8;
             border-radius: 10px;
             height: 40px;
             width: 300px;
+        }
+
+        #orderDiv {
+            width: 100%;
+            height: 30px;
+            background-color: #005ea8;
+            border-radius: 30px;
         }
     </style>
 
@@ -86,6 +78,9 @@
     <form action="search">
         <input type="text" name="q" id="searchInput" placeholder="Enter search term">
     </form>
+</div>
+<div id="orderDiv">
+    
 </div>
 <div id="container">
     <% table.forEach(function(item) { %>

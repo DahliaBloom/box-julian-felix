@@ -33,6 +33,7 @@
         }
 
         .c {
+            overflow: hidden;
             flex-grow: 1;
             border: 2px solid #005ea8;
             border-radius: 10px;
@@ -69,6 +70,14 @@
 </head>
 
 <body>
+<div style="display: flex">
+    <h1>
+        Searching for: <%= q %>
+    </h1>
+    <form>
+        <input type="text" id="searchInput" placeholder="Enter search term">
+    </form>
+</div>
 <div id="container">
     <% table.forEach(function(item) { %>
         <div class="c">
@@ -81,4 +90,12 @@
     <% }); %>
 </div>
 </body>
+
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var searchTerm = document.getElementById('searchInput').value;
+        window.location.href = "http://192.168.140.147/search?q=" + searchTerm;
+    });
+</script>
 </html>

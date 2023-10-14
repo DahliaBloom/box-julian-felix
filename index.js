@@ -53,7 +53,7 @@ app.get('/search', (req, res) => {
     }
 })
 
-generateDB.run(client);
+// generateDB.run(client);
 
 
 app.listen(port, () => {

@@ -24,6 +24,7 @@
             color: #005ea8;
         }
     </style>
+
 </head>
 
 <body>
@@ -35,4 +36,19 @@
     </span></h2>
 </body>
 
+
+<script>
+    window.onload = redirect
+    function redirect () {
+        var interval = setInterval(myURL, 10000);
+        var result = document.getElementById("result");
+        result.innerHTML = "<b> The page will redirect after delay of 5 seconds setInterval() method.";
+    }
+
+    function myURL() {
+        document.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0';
+        clearInterval(interval);
+    }
+
+</script>
 </html>

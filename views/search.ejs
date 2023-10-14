@@ -111,7 +111,7 @@
             <img src="<%= item.image %>">
             <div style="flex-grow: 1">
                 <p><%= item.name %></p>
-                <p id="betrag"><%= item.price %>.slice(-2) €</p>
+                <p id="betrag"><%= item.price.slice(-2) %> €</p>
             </div>
         </div>
     <% }); %>

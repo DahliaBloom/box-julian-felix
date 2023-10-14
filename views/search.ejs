@@ -111,7 +111,7 @@
             <img src="<%= item.image %>">
             <div style="flex-grow: 1">
                 <p><%= item.name %></p>
-                <p id="betrag"><%= item.price %> €</p>
+                <p id="betrag"><%=(item.price / 100).toFixed(0) %>.<%=(item.price % 100) %> €</p>
             </div>
         </div>
     <% }); %>

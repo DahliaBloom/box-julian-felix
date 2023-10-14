@@ -7,22 +7,26 @@ function run(client) {
 
     const json = fs.readFileSync('./dump.json', 'utf8');
 
-    data = parse(json)
+    data = JSON.parse(json)
 
     console.log(data);
 
-    return;
-    //
-    // client.query('INSERT INTO products VALUES ', (err, res) => {
-    //     if (err) {
-    //         console.error(err);
-    //         return;
-    //     }
-    //     console.log(res.rows);
-    //
-    //     res.render('search', {table: res.rows});
-    // });
-    //
+    var query = "INSERT INTO products VALUES ";
+    for (var i = 0; i < data.length; i++) {
+        query += "('" + data[i].name + "', " + data[i].price + ", '" + data[i].image + "'), ";
+    }
+
+
+    client.query(query, (err, res) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log(res.rows);
+
+        res.render('search', {table: res.rows});
+    });
+
 
 
 }

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+//const generateDB = require('./GenerateDB.js')
+//generateDB.run(client);
 
 const express = require('express')
 const app = express()
@@ -10,7 +12,7 @@ const client = new Client({
     user: 'admin',
     host: '192.168.140.147',
     database: 'check24',
-    password: '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',
+    password: 'MSw/&=D;)*EHK~s<a2x}Jj',
     port: 9856,
 });
 
@@ -46,8 +48,6 @@ app.get('/search', (req, res) => {
         res.render('search', {table: res.rows});
     });
 })
-
-
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

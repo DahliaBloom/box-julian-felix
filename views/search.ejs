@@ -29,13 +29,20 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            border: 2px solid #005ea8;
-            border-radius: 10px;
         }
 
         .c {
             width: 100%;
+            border: 2px solid #005ea8;
+            border-radius: 10px;
+            display: flex;
+        }
 
+        #betrag {
+            width: 100%;
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+            color: grey;
         }
     </style>
 
@@ -48,7 +55,7 @@
             <img src="<%= item.image %>">
             <div>
                 <p><%= item.name %></p>
-                <p><%= item.price %> €</p>
+                <p id="betrag"><%= item.price %> €</p>
             </div>
         </div>
     <% }); %>

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-//const generateDB = require('./GenerateDB.js')
+const generateDB = require('./GenerateDB.js')
 
 
 const express = require('express')
@@ -37,7 +37,7 @@ app.get('/search', (req, res) => {
     });
 })
 
-//generateDB.run(client);
+generateDB.run(client);
 
 
 app.listen(port, () => {

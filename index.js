@@ -35,7 +35,7 @@ app.get('/search', (req, res) => {
             }
             console.log(ress.rows);
 
-            res.render('search', {table: ress.rows, q: req.query.q});
+            res.render('search', {table: ress.rows, q: req.query.q, min: (req.query.min === undefined ? 0 : req.query.min), max: (req.query.max === undefined ? '9999' : req.query.max)});
         });
 
     } else {

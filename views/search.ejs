@@ -27,6 +27,13 @@
         #container {
             width: 90vw;
             display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .c {
+            width: 100%;
+
         }
     </style>
 
@@ -35,7 +42,13 @@
 <body>
 <div id="container">
     <% table.forEach(function(item) { %>
-        <div><%= item.name %></div>
+        <div class="c">
+            <img src="<%= item.image %>">
+            <div>
+                <p><%= item.name %></p>
+                <p><%= item.price %> €</p>
+            </div>
+        </div>
     <% }); %>
 </div>
 </body>

@@ -1,10 +1,8 @@
-import {parse} from "nodemon/lib/cli";
-
-export function run(client) {
+function run(client) {
 
     var data = "";
 
-    fetch('dumb.json')
+    fetch('./dumb.json')
         .then((response) => response.json())
         .then((json) => data = parse(json));
 
@@ -25,3 +23,5 @@ export function run(client) {
 
 
 }
+
+module.exports = {run}

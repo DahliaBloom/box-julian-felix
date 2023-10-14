@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var generateDB = import('./GenerateDB');
+const generateDB = require('./GenerateDB.js')
 
 const express = require('express')
 const app = express()

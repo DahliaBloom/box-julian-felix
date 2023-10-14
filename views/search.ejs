@@ -31,7 +31,7 @@
 <p><%= JSON.stringify(q) %></p>
 </body>
 <script>
-    let q = <%= JSON.stringify(q) %>;
+    let q = <%= JSON.parse(q) %>;
     console.log(q)
 
 </script>

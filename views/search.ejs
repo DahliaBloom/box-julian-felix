@@ -73,13 +73,12 @@
 
         .itemGroup {
             height: 70%;
-            min-width: 100px;
             background-color: white;
             border-radius: 9999px;
             display: flex;
             align-items: center;
             padding: 3px 10px;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: "Apple Braille";
         }
     </style>
 
@@ -95,15 +94,17 @@
     </form>
 </div>
 <div id="orderDiv">
-    <div class="itemGroup">
-        Order: <%= order %>
-    </div>
-    <div class="itemGroup">
-        Min: <%= min %>
-    </div>
-    <div class="itemGroup">
-        Max: <%= max %>
-    </div>
+    <form action="search">
+        <button class="itemGroup" name="">
+            Sort: <%= order %>
+        </button>
+        <div class="itemGroup">
+            Min: <%= min %>
+        </div>
+        <div class="itemGroup">
+            Max: <%= max %>
+        </div>
+    </form>
 </div>
 <div id="container">
     <% table.forEach(function(item) { %>

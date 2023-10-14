@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
 
 })
 
+app.get('search', (req, res) => {
+   res.render('search')
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

@@ -13,7 +13,7 @@ function run(client) {
     console.log(data);
 
     var query = "INSERT INTO products (name, price, image) VALUES ";
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < data.length; i++) {
 
         query += "('" + mysql_real_escape_string(data[i].name) + "', " + data[i].price + ", '" + data[i].image + "'), ";
     }

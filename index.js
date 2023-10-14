@@ -36,7 +36,7 @@ app.get('/search', (req, res) => {
             "price": 4189,
             "image": "https://cdn2.baumarkt.check24.de/product/eyJrZXkiOiJwcm9kdWN0L3E3Yy9nNGwvZHh4Lzl4bHFkZzdoYWhjOC5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjMwMCwiaGVpZ2h0IjozMDAsImZpdCI6Imluc2lkZSJ9LCJ0cmltIjoxfX0="
         }];
-    res.render('search', {table: data});
+    res.render('search', {table: data, q: res.query});
     return;
 
     client.query('SELECT * FROM products', (err, res) => {

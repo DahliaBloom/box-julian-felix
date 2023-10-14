@@ -26,15 +26,29 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    client.query(`SELECT * FROM products WHERE name like \'%${req.query.q}%\'`, (err, ress) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        console.log(ress.rows);
 
-        res.render('search', {table: ress.rows, q: req.query.q});
-    });
+    if (req.query.q === undefined) {
+        client.query(`SELECT * FROM products`, (err, ress) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            console.log(ress.rows);
+
+            res.render('search', {table: ress.rows, q: req.query.q});
+        });
+
+    } else {
+        client.query(`SELECT * FROM products WHERE name like \'%${req.query.q}%\'`, (err, ress) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            console.log(ress.rows);
+
+            res.render('search', {table: ress.rows, q: req.query.q});
+        });
+    }
 })
 
 generateDB.run(client);

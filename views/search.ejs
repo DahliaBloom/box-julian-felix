@@ -102,6 +102,7 @@
     document.getElementById('searchForm').addEventListener('submit', function(e) {
         e.preventDefault();
         var searchTerm = document.getElementById('searchInput').value;
+        console.log(searchTerm)
         window.location.href = "http://192.168.140.147/search?q=" + searchTerm;
     });
 </script>

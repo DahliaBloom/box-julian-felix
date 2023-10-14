@@ -83,7 +83,7 @@
 
         .in {
             height: 90%;
-            width: 50px;
+            width: 100px;
             border: none;
         }
     </style>
@@ -107,11 +107,14 @@
         <div class="itemGroup">
             Min:
             <form>
-                <input class="in" type="number" name="min" min="0" step="0.01" placeholder="<%= min %>">
+                <input class="in" type="number" name="min" min="0" step="1" placeholder="<%= min %>">
             </form>
         </div>
         <div class="itemGroup">
-            Max: <%= max %>
+            Max:
+            <form>
+                <input class="in" type="number" name="max" min="0" step="1" placeholder="<%= max %>">
+            </form>
         </div>
 </div>
 <div id="container">
